@@ -20,7 +20,8 @@ Red::Red(iPoint &p)
 	current_animation = &idle;
 
 	// Colliders
-	coll = app->collision->addCollider({ pos.x + collider_offset.x, pos.y + collider_offset.y, 96, 59 }, COLLIDER_BUILDING);
+	SDL_Rect coll_rect = { pos.x + collider_offset.x, pos.y + collider_offset.y, 96, 59 };
+	coll = app->collision->addCollider(coll_rect, COLLIDER_BUILDING);
 
 	// Another stuff
 	specialization = RED;

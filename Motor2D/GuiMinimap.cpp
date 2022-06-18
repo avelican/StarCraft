@@ -179,15 +179,23 @@ void GuiMinimap::draw() const
 			pos = worldToMinimap({ it->ping_position.x, it->ping_position.y });
 			switch (it->type_of_ping)
 			{
-			case BOMB:
-				app->render->DrawQuad({ pos.x - it->current_ping_width / 2,
-					pos.y - it->current_ping_height / 2,
-					it->current_ping_width, it->current_ping_height }, 0, 0, 255, 255, false);
+				case BOMB:
+				{
+					SDL_Rect r1 = { pos.x - it->current_ping_width / 2,
+						pos.y - it->current_ping_height / 2,
+						it->current_ping_width, it->current_ping_height };
+
+					app->render->DrawQuad(r1, 0, 0, 255, 255, false);
+				}
 				break;
-			default:
-				app->render->DrawQuad({ pos.x - it->current_ping_width / 2,
-					pos.y - it->current_ping_height / 2,
-					it->current_ping_width, it->current_ping_height }, 255, 0, 0, 255, false);
+				default:
+				{
+					SDL_Rect r2 = { pos.x - it->current_ping_width / 2,
+						pos.y - it->current_ping_height / 2,
+						it->current_ping_width, it->current_ping_height };
+
+					app->render->DrawQuad(r2, 255, 0, 0, 255, false);
+				}
 				break;
 			}
 		}

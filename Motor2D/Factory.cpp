@@ -24,7 +24,8 @@ Factory::Factory(iPoint &p)
 	tile_pos = app->map->worldToMap(app->map->data.back(), center.x, center.y);
 
 	// Colliders
-	coll = app->collision->addCollider({ pos.x + collider_offset.x, pos.y + collider_offset.y, 128, 108 }, COLLIDER_BUILDING);
+	SDL_Rect coll_rect = { pos.x + collider_offset.x, pos.y + collider_offset.y, 128, 108 };
+	coll = app->collision->addCollider(coll_rect, COLLIDER_BUILDING);
 	collider_offset.setZero();
 
 	// Characterization and behaviour

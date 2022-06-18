@@ -134,7 +134,8 @@ Scv::Scv(iPoint &p)
 	particle_offset = { 0, 0 };
 
 	// Colliders
-	coll = app->collision->addCollider({ center.x + collider_offset.x, center.y + collider_offset.y, 30, 30 }, COLLIDER_UNIT, app->entity_manager);
+	SDL_Rect coll_rect = { center.x + collider_offset.x, center.y + collider_offset.y, 30, 30 };
+	coll = app->collision->addCollider(coll_rect, COLLIDER_UNIT, app->entity_manager);
 	collider_offset = { -14, -16 };
 
 	// Characterization and behaviour

@@ -23,7 +23,8 @@ Bomb::Bomb(iPoint &p)
 	idle.loop = true;
 	current_animation = &idle;
 	// Colliders
-	coll = app->collision->addCollider({ pos.x + collider_offset.x, pos.y + collider_offset.y, 47, 90 }, COLLIDER_BOMB);
+	SDL_Rect coll_rect = { pos.x + collider_offset.x, pos.y + collider_offset.y, 47, 90 };
+	coll = app->collision->addCollider(coll_rect, COLLIDER_BOMB);
 
 	// Another stuff
 	specialization = BOMB;

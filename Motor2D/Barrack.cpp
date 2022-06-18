@@ -24,7 +24,8 @@ Barrack::Barrack(iPoint &p)
 	tile_pos = app->map->worldToMap(app->map->data.back(), center.x, center.y);
 
 	// Colliders
-	coll = app->collision->addCollider({ pos.x + collider_offset.x, pos.y + collider_offset.y, 125, 110 }, COLLIDER_BUILDING);
+	SDL_Rect coll_rect = { pos.x + collider_offset.x, pos.y + collider_offset.y, 125, 110 };
+	coll = app->collision->addCollider(coll_rect, COLLIDER_BUILDING);
 	collider_offset.setZero();
 
 	// Characterization and behaviour

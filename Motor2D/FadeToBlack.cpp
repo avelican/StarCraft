@@ -18,7 +18,7 @@ bool FadeToBlack::start()
 	LOG("Preparing Fade Screen");
 	uint w, h;
 	app->win->getWindowSize(w, h);
-	screen = { 0, 0, w, h };
+	screen = { 0, 0, (int)w, (int)h };
 	SDL_SetRenderDrawBlendMode(app->render->renderer, SDL_BLENDMODE_BLEND);
 	return true;
 }

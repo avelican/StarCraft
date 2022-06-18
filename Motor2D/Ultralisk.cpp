@@ -151,7 +151,8 @@ Ultralisk::Ultralisk(iPoint &p)
 	tile_pos = app->map->worldToMap(app->map->data.back(), center.x, center.y);
 
 	// Colliders
-	coll = app->collision->addCollider({ center.x + collider_offset.x, center.y + collider_offset.y, 64, 48 }, COLLIDER_UNIT, app->entity_manager);
+	SDL_Rect coll_rect = { center.x + collider_offset.x, center.y + collider_offset.y, 64, 48 };
+	coll = app->collision->addCollider(coll_rect, COLLIDER_UNIT, app->entity_manager);
 	collider_offset = { -32, -24 };
 
 	// Characterization and behaviour
